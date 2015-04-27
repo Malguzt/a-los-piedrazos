@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1425761080 source:/media/nahyta/f988941a-7af9-4cbd-ae33-20695a726c64/projects/games/a-los-piedrazos/main.cpp
+	"Game.h"
+
+1426126010 /media/nahyta/f988941a-7af9-4cbd-ae33-20695a726c64/projects/games/a-los-piedrazos/include/Game.h
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+	<string>
+	"Rock.h"
+
+1426365612 source:/media/nahyta/f988941a-7af9-4cbd-ae33-20695a726c64/projects/games/a-los-piedrazos/src/Game.cpp
+	"Game.h"
+
+1427327684 /media/nahyta/f988941a-7af9-4cbd-ae33-20695a726c64/projects/games/a-los-piedrazos/include/Rock.h
+	<SFML/Graphics.hpp>
+
+1427328973 source:/media/nahyta/f988941a-7af9-4cbd-ae33-20695a726c64/projects/games/a-los-piedrazos/src/Rock.cpp
+	"Rock.h"
+	<SFML/Graphics.hpp>
+	<math.h>
+
