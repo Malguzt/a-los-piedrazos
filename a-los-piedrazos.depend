@@ -19,3 +19,23 @@
 	<SFML/Graphics.hpp>
 	<math.h>
 
+1431599263 source:/home/jlenscak/project/games/a-los-piedrazos/main.cpp
+	"Game.h"
+
+1431658523 /home/jlenscak/project/games/a-los-piedrazos/include/Game.h
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+	<string>
+	"Rock.h"
+
+1431687096 /home/jlenscak/project/games/a-los-piedrazos/include/Rock.h
+	<SFML/Graphics.hpp>
+
+1431686651 source:/home/jlenscak/project/games/a-los-piedrazos/src/Rock.cpp
+	"Rock.h"
+	<SFML/Graphics.hpp>
+	<math.h>
+
+1431687456 source:/home/jlenscak/project/games/a-los-piedrazos/src/Game.cpp
+	"Game.h"
+

@@ -37,11 +37,33 @@ void Game::processEvent(Event &evt)
         case Event::Closed:
             pWnd->close();
             break;
+        case Event::KeyPressed:
+            processKey(evt.key.code);
+            break;
     }
 }
 
 void Game::processCollisions()
 {
+}
+
+void Game::processKey(int keyCode)
+{
+    switch(keyCode)
+    {
+        case Keyboard::Right:
+            theRock.changeRadius(5);
+            break;
+        case Keyboard::Left:
+            theRock.changeRadius(-5);
+            break;
+        case Keyboard::Up:
+            theRock.changeSpeed(5);
+            break;
+        case Keyboard::Down:
+            theRock.changeSpeed(-5);
+            break;
+    }
 }
 
 void Game::updateGame()

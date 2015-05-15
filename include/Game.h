@@ -22,6 +22,7 @@ class Game
         void drawGame();
         void updateGame();
         void processCollisions();
+        void processKey(int keyCode);
 };
 
 #endif // GAME_H

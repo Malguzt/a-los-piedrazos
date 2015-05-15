@@ -48,14 +48,41 @@ void Rock::update()
 void Rock::changePosition()
 {
     position += speed;
-    sprite.setPosition(position);
+    sprite.setPosition(position - Vector2f(16, 16));
+    calculateRadius();
     updateSpeed();
+}
+
+void Rock::calculateRadius()
+{
+    float angle = getTheAngle();
+    position.x = pivot.x + radius * cos(angle);
+    position.y = pivot.y + radius * sin(angle);
+}
+
+float Rock::getTheAngle()
+{
+    Vector2f centripetal = position - pivot;
+
+    return atan2(centripetal.y, centripetal.x) ;
 }
 
 void Rock::updateSpeed()
 {
-    Vector2f centripetal = position - pivot;
-    float angle = atan2(centripetal.y, centripetal.x) - (M_PI / 2);
+    float angle = getTheAngle() - (M_PI / 2);
     speed.x = speedModule * cos(angle);
     speed.y = speedModule * sin(angle);
+}
+
+void Rock::changeRadius(int addRadius){
+    if(radius + addRadius > 5 && radius + addRadius < 201) {
+        radius += addRadius;
+    }
+}
+
+void Rock::changeSpeed(int addSpeed)
+{
+    if(speedModule + addSpeed > -201 && speedModule + addSpeed < 201){
+        speedModule += addSpeed;
+    }
 }
