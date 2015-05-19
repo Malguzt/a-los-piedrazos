@@ -48,9 +48,8 @@ void Rock::update()
 void Rock::changePosition()
 {
     position += speed;
-    sprite.setPosition(position - Vector2f(16, 16));
-    calculateRadius();
     updateSpeed();
+    sprite.setPosition(position - Vector2f(16, 16));
 }
 
 void Rock::calculateRadius()
@@ -69,12 +68,19 @@ float Rock::getTheAngle()
 
 void Rock::updateSpeed()
 {
-    float angle = getTheAngle() - (M_PI / 2);
-    speed.x = speedModule * cos(angle);
-    speed.y = speedModule * sin(angle);
+    if(inTheSling)
+    {
+        calculateRadius();
+        float angle = getTheAngle() - (M_PI / 2);
+        speed.x = speedModule * cos(angle);
+        speed.y = speedModule * sin(angle);
+    }
+    speed += Vector2f(0, 0.4);
+
 }
 
-void Rock::changeRadius(int addRadius){
+void Rock::changeRadius(int addRadius)
+{
     if(radius + addRadius > 5 && radius + addRadius < 201) {
         radius += addRadius;
     }
@@ -82,7 +88,26 @@ void Rock::changeRadius(int addRadius){
 
 void Rock::changeSpeed(int addSpeed)
 {
-    if(speedModule + addSpeed > -201 && speedModule + addSpeed < 201){
+    if(speedModule + addSpeed > -51 && speedModule + addSpeed < 51){
         speedModule += addSpeed;
     }
+}
+
+void Rock::shoot()
+{
+    inTheSling = false;
+}
+
+bool Rock::inTheScene(int x, int y)
+{
+    return position.x > 0 && position.x < x && position.y > 0 && position.y < y;
+}
+
+void Rock::newShoot()
+{
+    position = Vector2f(200.5f, 500.5f);
+    inTheSling = true;
+    speed = Vector2f(0, 0);
+    speedModule = 10;
+    radius = 100;
 }

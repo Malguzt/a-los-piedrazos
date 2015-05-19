@@ -3,7 +3,7 @@
 Game::Game()
 {
     pWnd = new RenderWindow(VideoMode(800, 600), "Shoot the bottles");
-    pWnd->setFramerateLimit(6);
+    pWnd->setFramerateLimit(60);
 }
 
 Game::~Game()
@@ -52,16 +52,19 @@ void Game::processKey(int keyCode)
     switch(keyCode)
     {
         case Keyboard::Right:
-            theRock.changeRadius(5);
+            theRock.changeRadius(2);
             break;
         case Keyboard::Left:
-            theRock.changeRadius(-5);
+            theRock.changeRadius(-2);
             break;
         case Keyboard::Up:
-            theRock.changeSpeed(5);
+            theRock.changeSpeed(2);
             break;
         case Keyboard::Down:
-            theRock.changeSpeed(-5);
+            theRock.changeSpeed(-2);
+            break;
+        case Keyboard::Space:
+            theRock.shoot();
             break;
     }
 }
@@ -69,6 +72,10 @@ void Game::processKey(int keyCode)
 void Game::updateGame()
 {
     theRock.update();
+    if(!theRock.inTheScene(800, 600))
+    {
+        theRock.newShoot();
+    }
 }
 
 void Game::drawGame()

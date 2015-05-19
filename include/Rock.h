@@ -14,11 +14,15 @@ class Rock
         void draw(RenderWindow &gm);
         void changeRadius(int addRadius);
         void changeSpeed(int addSpeed);
+        void shoot();
+        bool inTheScene(int x, int y);
+        void newShoot();
     protected:
     private:
-        Vector2f position = Vector2f(100.5f, 500.5f);
+        bool inTheSling = true;
+        Vector2f position = Vector2f(200.5f, 500.5f);
         Vector2f speed = Vector2f(0, 0);
-        Vector2f pivot = Vector2f(100, 450);
+        Vector2f pivot = Vector2f(200, 400);
         int speedModule = 10;
         Sprite sprite;
         Texture texture;
