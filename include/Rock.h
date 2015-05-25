@@ -17,6 +17,7 @@ class Rock
         void shoot();
         bool inTheScene(int x, int y);
         void newShoot();
+        IntRect getArea();
     protected:
     private:
         bool inTheSling = true;

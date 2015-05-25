@@ -22,20 +22,29 @@
 1431599263 source:/home/jlenscak/project/games/a-los-piedrazos/main.cpp
 	"Game.h"
 
-1431658523 /home/jlenscak/project/games/a-los-piedrazos/include/Game.h
+1432425030 /home/jlenscak/project/games/a-los-piedrazos/include/Game.h
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
+	<vector>
 	<string>
 	"Rock.h"
+	"Bottle.h"
 
-1431814361 /home/jlenscak/project/games/a-los-piedrazos/include/Rock.h
+1432415318 /home/jlenscak/project/games/a-los-piedrazos/include/Rock.h
 	<SFML/Graphics.hpp>
 
-1432005205 source:/home/jlenscak/project/games/a-los-piedrazos/src/Rock.cpp
+1432424880 source:/home/jlenscak/project/games/a-los-piedrazos/src/Rock.cpp
 	"Rock.h"
 	<SFML/Graphics.hpp>
 	<math.h>
 
-1431814435 source:/home/jlenscak/project/games/a-los-piedrazos/src/Game.cpp
+1432491520 source:/home/jlenscak/project/games/a-los-piedrazos/src/Game.cpp
 	"Game.h"
+
+1432523582 /home/jlenscak/project/games/a-los-piedrazos/include/Bottle.h
+	<SFML/Graphics.hpp>
+	"Rock.h"
+
+1432519632 source:/home/jlenscak/project/games/a-los-piedrazos/src/Bottle.cpp
+	"Bottle.h"
 

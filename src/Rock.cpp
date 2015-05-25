@@ -111,3 +111,9 @@ void Rock::newShoot()
     speedModule = 10;
     radius = 100;
 }
+
+IntRect Rock::getArea()
+{
+
+    return IntRect(position.x, position.y, 32, 32);
+}

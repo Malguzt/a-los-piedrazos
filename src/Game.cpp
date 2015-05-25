@@ -4,11 +4,12 @@ Game::Game()
 {
     pWnd = new RenderWindow(VideoMode(800, 600), "Shoot the bottles");
     pWnd->setFramerateLimit(60);
+    createBottles();
 }
 
 Game::~Game()
 {
-    //dtor
+    delete pWnd;
 }
 
 void Game::Go()
@@ -45,6 +46,10 @@ void Game::processEvent(Event &evt)
 
 void Game::processCollisions()
 {
+    for (std::vector<Bottle*>::iterator it = bottles.begin(); it != bottles.end(); ++it)
+    {
+        (*it)->checkCollision(theRock, bottles);
+    }
 }
 
 void Game::processKey(int keyCode)
@@ -81,4 +86,16 @@ void Game::updateGame()
 void Game::drawGame()
 {
     theRock.draw(*pWnd);
+    for (std::vector<Bottle*>::iterator it = bottles.begin(); it != bottles.end(); ++it)
+    {
+        (*it)->draw(*pWnd);
+    }
+}
+
+void Game::createBottles()
+{
+    for(int i = 0; i < numberOfBottles; ++i)
+    {
+        bottles.push_back(new Bottle(bottles));
+    }
 }

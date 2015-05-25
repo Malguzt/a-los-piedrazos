@@ -42,9 +42,11 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="cb.bmp" />
+		<Unit filename="include/Bottle.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Rock.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Bottle.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Rock.cpp" />
 		<Extensions>
