@@ -40,12 +40,14 @@ void Bottle::getRandomPosition()
 {
     int x = rand() % 350 + 400;
     int y = rand() % 400 + 10;
-    position = Vector2f(x, y);
+    position = Vector2f(x, 0);
+    theoricPosition = Vector2f(x, y);
 }
 
 void Bottle::newPosition(std::vector<Bottle*> &bottles)
 {
     checkPosition(bottles);
+    speed = Vector2f(0, 0.4);
     sprite.setPosition(position);
 }
 
@@ -55,11 +57,29 @@ IntRect Bottle::getArea()
     return IntRect((Vector2i) position, theSize);
 }
 
+IntRect Bottle::getTheoricArea()
+{
+
+    return IntRect((Vector2i) theoricPosition, theSize);
+}
+
+void Bottle::updatePosition()
+{
+    position += speed;
+    sprite.setPosition(position);
+
+    if(position.y > theoricPosition.y)
+    {
+        speed.y = (theoricPosition.y - position.y);
+    }
+    speed += Vector2f(0, 0.4);
+}
+
 bool Bottle::zoneIsUsed(Bottle &otherBottle)
 {
     if(&otherBottle != this)
     {
-        return getArea().intersects(otherBottle.getArea());
+        return getTheoricArea().intersects(otherBottle.getTheoricArea());
     }
 
     return false;

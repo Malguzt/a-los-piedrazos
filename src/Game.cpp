@@ -2,6 +2,9 @@
 
 Game::Game()
 {
+    backgroundTexture.loadFromFile("img/background.png");
+    backgroundSprite.setTexture(backgroundTexture);
+
     pWnd = new RenderWindow(VideoMode(800, 600), "Shoot the bottles");
     pWnd->setFramerateLimit(60);
     createBottles();
@@ -77,6 +80,10 @@ void Game::processKey(int keyCode)
 void Game::updateGame()
 {
     theRock.update();
+    for (std::vector<Bottle*>::iterator it = bottles.begin(); it != bottles.end(); ++it)
+    {
+        (*it)->updatePosition();
+    }
     if(!theRock.inTheScene(800, 600))
     {
         theRock.newShoot();
@@ -85,6 +92,7 @@ void Game::updateGame()
 
 void Game::drawGame()
 {
+    pWnd->draw(backgroundSprite);
     theRock.draw(*pWnd);
     for (std::vector<Bottle*>::iterator it = bottles.begin(); it != bottles.end(); ++it)
     {

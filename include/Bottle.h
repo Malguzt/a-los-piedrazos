@@ -14,17 +14,22 @@ class Bottle
         void newPosition(std::vector<Bottle*> &);
         bool zoneIsUsed(Bottle &otherBottle);
         bool checkCollision(Rock &, std::vector<Bottle*> &);
+        void updatePosition();
     protected:
     private:
         void checkPosition(std::vector<Bottle*> &);
         void getRandomPosition();
         Vector2f position;
+        Vector2f theoricPosition;
+        Vector2f speed;
         Vector2i theSize = Vector2i(50, 100);
         Sprite sprite;
         Texture texture;
         IntRect getArea();
+        IntRect getTheoricArea();
         int x;
         int y;
+        int ropeLeng;
 };
 
 #endif // BOTTLE_H

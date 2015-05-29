@@ -28,6 +28,8 @@ class Game
         void processCollisions();
         void processKey(int keyCode);
         int numberOfBottles = 5;
+        Texture backgroundTexture;
+        Sprite backgroundSprite;
 };
 
 #endif // GAME_H
