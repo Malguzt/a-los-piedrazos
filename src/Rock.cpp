@@ -17,15 +17,19 @@ Rock::~Rock()
 
 void Rock::draw(RenderWindow &gm)
 {
+    //Draw radius
+    if(inTheSling)
+    {
+        Vertex radiusLine[] = {Vertex(pivot, Color(200, 200, 0)), Vertex(position, Color(250, 80, 50))};
+        gm.draw(radiusLine, 2, Lines);
+    }
+
     int x = (frame % 8 * 32);
     int y = (frame / (int)8) * 32;
     sprite.setTextureRect(IntRect(x, y, 32, 32));
     gm.draw(sprite);
 
     #ifdef DEBUG_PHYSICS
-    //Draw radius
-    Vertex radiusLine[] = {pivot, position};
-    gm.draw(radiusLine, 2, Lines);
 
     //Draw speed
     Vertex speedLine[] = {position, speed + position};

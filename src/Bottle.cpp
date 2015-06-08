@@ -18,7 +18,17 @@ void Bottle::draw(RenderWindow &gm)
         RectangleShape rectangle((Vector2f) theSize);
         rectangle.setPosition(position);
         gm.draw(rectangle);
+        rectangle.setPosition(theoricPosition);
+        gm.draw(rectangle);
     #endif // DEBUG_PHYSICS
+
+    //Draw rope
+    Vector2f origin(position.x + theSize.x / 2, 0);
+    Vector2f knot = origin;
+    knot.y = position.y;
+
+    Vertex radiusLine[] = {Vertex(origin, Color(100, 250, 50)), Vertex(knot, Color(0, 0, 0))};
+    gm.draw(radiusLine, 8, Lines);
     gm.draw(sprite);
 }
 
@@ -65,14 +75,17 @@ IntRect Bottle::getTheoricArea()
 
 void Bottle::updatePosition()
 {
-    position += speed;
-    sprite.setPosition(position);
+    int diff = (theoricPosition.y - position.y);
 
-    if(position.y > theoricPosition.y)
+    if(diff < 0)
     {
-        speed.y = (theoricPosition.y - position.y);
+        position.y += (diff * diff * diff * 0.00001);
+        speed.y += diff * 0.04;
     }
-    speed += Vector2f(0, 0.4);
+
+    position.y += speed.y;
+    sprite.setPosition(position);
+    speed.y += 0.4;
 }
 
 bool Bottle::zoneIsUsed(Bottle &otherBottle)

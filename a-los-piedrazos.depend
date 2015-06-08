@@ -48,3 +48,40 @@
 1432872642 source:/home/jlenscak/project/games/a-los-piedrazos/src/Bottle.cpp
 	"Bottle.h"
 
+1431599263 source:/home/jlenscak/games/a-los-piedrazos/main.cpp
+	"Game.h"
+
+1432870773 /home/jlenscak/games/a-los-piedrazos/include/Game.h
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+	<vector>
+	<string>
+	"Rock.h"
+	"Bottle.h"
+
+1432415318 /home/jlenscak/games/a-los-piedrazos/include/Rock.h
+	<SFML/Graphics.hpp>
+
+1432872833 /home/jlenscak/games/a-los-piedrazos/include/Bottle.h
+	<SFML/Graphics.hpp>
+	"Rock.h"
+
+1433740976 source:/home/jlenscak/games/a-los-piedrazos/src/Bottle.cpp
+	"Bottle.h"
+
+1432871557 source:/home/jlenscak/games/a-los-piedrazos/src/Game.cpp
+	"Game.h"
+
+1433740216 source:/home/jlenscak/games/a-los-piedrazos/src/Rock.cpp
+	"Rock.h"
+	<SFML/Graphics.hpp>
+	<math.h>
+
+1433733629 source:/home/jlenscak/games/a-los-piedrazos/src/Board.cpp
+	<string>
+	"Board.h"
+	<sstream>
+
+1433733629 /home/jlenscak/games/a-los-piedrazos/include/Board.h
+	<SFML/Graphics.hpp>
+
