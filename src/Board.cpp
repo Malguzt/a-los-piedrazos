@@ -11,14 +11,9 @@ Board::Board()
     text.setColor(Color::Green);
     text.setPosition(10, 10);
 
-    okTexture.loadFromFile("img/ok.png");
-    koTexture.loadFromFile("img/ko.png");
-
-    for(int i = 0; i < maxLives; ++i)
-    {
-        hearts[i].setTexture(okTexture);
-        hearts[i].setPosition(660 + i * 38, 10);
-    }
+    rockTexture.loadFromFile("img/small_rock.png");
+    rockSprite.setTexture(rockTexture);
+    rockSprite.setTextureRect(IntRect(0, 0, 32, 32));
 }
 
 Board::~Board()
@@ -34,27 +29,19 @@ void Board::draw(RenderWindow &app)
 
     app.draw(text);
 
-    for(int i= 0; i < maxLives; ++i)
+
+    for(int i= 0; i < shoots; ++i)
     {
-        app.draw(hearts[i]);
+        rockSprite.setPosition(Vector2f(300 + i * 30, 10));
+        app.draw(rockSprite);
     }
 }
 
-void Board::lostALive()
+void Board::lostAShoot()
 {
-    if(lives > 0)
+    if(shoots > 0)
     {
-        --lives;
-    }
-
-    for(int i = 0; i < maxLives; ++i)
-    {
-        if(i < lives)
-        {
-            hearts[i].setTexture(okTexture);
-        } else {
-            hearts[i].setTexture(koTexture);
-        }
+        --shoots;
     }
 }
 
@@ -68,9 +55,9 @@ void Board::addPoints(int newPoints)
     }
 }
 
-int Board::getLives()
+int Board::getShoots()
 {
-    return lives;
+    return shoots;
 }
 
 void Board::drawTheEnd(RenderWindow &app)

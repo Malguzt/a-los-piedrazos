@@ -7,6 +7,7 @@
 #include <string>
 #include "Rock.h"
 #include "Bottle.h"
+#include "Board.h"
 
 using namespace sf;
 using namespace std;
@@ -30,6 +31,7 @@ class Game
         int numberOfBottles = 5;
         Texture backgroundTexture;
         Sprite backgroundSprite;
+        Board board;
 };
 
 #endif // GAME_H

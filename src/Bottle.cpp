@@ -98,15 +98,22 @@ bool Bottle::zoneIsUsed(Bottle &otherBottle)
     return false;
 }
 
-bool Bottle::checkCollision(Rock &theRock, std::vector<Bottle*> &bottles)
+bool Bottle::checkCollision(Rock &theRock, std::vector<Bottle*> &bottles, Board &board)
 {
     if (getArea().intersects(theRock.getArea()))
     {
         theRock.newShoot();
         newPosition(bottles);
+        updateBoard(board);
 
         return true;
     }
 
     return false;
+}
+
+void Bottle::updateBoard(Board &board)
+{
+    board.addPoints(20);
+    board.lostAShoot();
 }

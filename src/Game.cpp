@@ -21,15 +21,21 @@ void Game::Go()
 
     while(pWnd->isOpen())
     {
+
         while (pWnd->pollEvent(evt))
         {
             processEvent(evt);
         }
 
-        processCollisions();
-        updateGame();
         pWnd->clear();
-        drawGame();
+        if(board.getShoots() > 0)
+        {
+            processCollisions();
+            updateGame();
+            drawGame();
+        } else {
+            board.drawTheEnd(*pWnd);
+        }
         pWnd->display();
     }
 }
@@ -51,7 +57,7 @@ void Game::processCollisions()
 {
     for (std::vector<Bottle*>::iterator it = bottles.begin(); it != bottles.end(); ++it)
     {
-        (*it)->checkCollision(theRock, bottles);
+        (*it)->checkCollision(theRock, bottles, board);
     }
 }
 
@@ -86,6 +92,7 @@ void Game::updateGame()
     }
     if(!theRock.inTheScene(800, 600))
     {
+        board.lostAShoot();
         theRock.newShoot();
     }
 }
@@ -98,6 +105,7 @@ void Game::drawGame()
     {
         (*it)->draw(*pWnd);
     }
+    board.draw(*pWnd);
 }
 
 void Game::createBottles()

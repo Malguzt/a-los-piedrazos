@@ -2,6 +2,7 @@
 #define BOTTLE_H
 #include <SFML/Graphics.hpp>
 #include "Rock.h"
+#include "Board.h"
 
 using namespace sf;
 
@@ -13,7 +14,7 @@ class Bottle
         void draw(RenderWindow &);
         void newPosition(std::vector<Bottle*> &);
         bool zoneIsUsed(Bottle &otherBottle);
-        bool checkCollision(Rock &, std::vector<Bottle*> &);
+        bool checkCollision(Rock &, std::vector<Bottle*> &, Board &board);
         void updatePosition();
     protected:
     private:
@@ -27,6 +28,7 @@ class Bottle
         Texture texture;
         IntRect getArea();
         IntRect getTheoricArea();
+        void updateBoard(Board &board);
         int x;
         int y;
         int ropeLeng;
