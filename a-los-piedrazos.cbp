@@ -46,11 +46,13 @@
 		<Unit filename="include/Bottle.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/Rock.h" />
+		<Unit filename="include/RockBottle.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Board.cpp" />
 		<Unit filename="src/Bottle.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Rock.cpp" />
+		<Unit filename="src/RockBottle.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

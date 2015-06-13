@@ -7,6 +7,7 @@
 #include <string>
 #include "Rock.h"
 #include "Bottle.h"
+#include "RockBottle.h"
 #include "Board.h"
 
 using namespace sf;

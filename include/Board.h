@@ -13,6 +13,7 @@ class Board
         void draw(RenderWindow &app);
         void drawTheEnd(RenderWindow &app);
         void lostAShoot();
+        void addShoots(int shoots);
         void addPoints(int points);
         int getShoots();
     protected:

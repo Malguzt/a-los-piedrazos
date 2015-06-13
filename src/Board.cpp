@@ -55,6 +55,16 @@ void Board::addPoints(int newPoints)
     }
 }
 
+void Board::addShoots(int newShoots)
+{
+    if(shoots + newShoots < 15)
+    {
+        shoots += newShoots;
+    } else {
+        shoots = 15;
+    }
+}
+
 int Board::getShoots()
 {
     return shoots;

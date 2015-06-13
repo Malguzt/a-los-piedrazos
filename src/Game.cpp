@@ -112,6 +112,13 @@ void Game::createBottles()
 {
     for(int i = 0; i < numberOfBottles; ++i)
     {
-        bottles.push_back(new Bottle(bottles));
+        switch(i) {
+         case 0:
+            bottles.push_back(new RockBottle(bottles));
+            break;
+         default:
+            bottles.push_back(new Bottle(bottles));
+            break;
+        }
     }
 }

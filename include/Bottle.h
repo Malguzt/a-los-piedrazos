@@ -11,24 +11,24 @@ class Bottle
     public:
         Bottle(std::vector<Bottle*> &);
         virtual ~Bottle();
-        void draw(RenderWindow &);
+        virtual void draw(RenderWindow &);
         void newPosition(std::vector<Bottle*> &);
         bool zoneIsUsed(Bottle &otherBottle);
         bool checkCollision(Rock &, std::vector<Bottle*> &, Board &board);
         void updatePosition();
     protected:
+        Vector2f position;
+        IntRect getArea();
+        IntRect getTheoricArea();
     private:
         void checkPosition(std::vector<Bottle*> &);
         void getRandomPosition();
-        Vector2f position;
         Vector2f theoricPosition;
         Vector2f speed;
         Vector2i theSize = Vector2i(50, 100);
         Sprite sprite;
         Texture texture;
-        IntRect getArea();
-        IntRect getTheoricArea();
-        void updateBoard(Board &board);
+        virtual void updateBoard(Board &board);
         int x;
         int y;
         int ropeLeng;

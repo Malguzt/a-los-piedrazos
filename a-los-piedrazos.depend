@@ -51,19 +51,20 @@
 1431599263 source:/home/jlenscak/games/a-los-piedrazos/main.cpp
 	"Game.h"
 
-1433809200 /home/jlenscak/games/a-los-piedrazos/include/Game.h
+1434160420 /home/jlenscak/games/a-los-piedrazos/include/Game.h
 	<SFML/Window.hpp>
 	<SFML/Graphics.hpp>
 	<vector>
 	<string>
 	"Rock.h"
 	"Bottle.h"
+	"RockBottle.h"
 	"Board.h"
 
 1433989197 /home/jlenscak/games/a-los-piedrazos/include/Rock.h
 	<SFML/Graphics.hpp>
 
-1434157612 /home/jlenscak/games/a-los-piedrazos/include/Bottle.h
+1434160781 /home/jlenscak/games/a-los-piedrazos/include/Bottle.h
 	<SFML/Graphics.hpp>
 	"Rock.h"
 	"Board.h"
@@ -71,7 +72,7 @@
 1434157686 source:/home/jlenscak/games/a-los-piedrazos/src/Bottle.cpp
 	"Bottle.h"
 
-1434158145 source:/home/jlenscak/games/a-los-piedrazos/src/Game.cpp
+1434160515 source:/home/jlenscak/games/a-los-piedrazos/src/Game.cpp
 	"Game.h"
 
 1433741493 source:/home/jlenscak/games/a-los-piedrazos/src/Rock.cpp
@@ -79,11 +80,17 @@
 	<SFML/Graphics.hpp>
 	<math.h>
 
-1433989090 source:/home/jlenscak/games/a-los-piedrazos/src/Board.cpp
+1434161391 source:/home/jlenscak/games/a-los-piedrazos/src/Board.cpp
 	<string>
 	"Board.h"
 	<sstream>
 
-1433988789 /home/jlenscak/games/a-los-piedrazos/include/Board.h
+1434160862 /home/jlenscak/games/a-los-piedrazos/include/Board.h
 	<SFML/Graphics.hpp>
+
+1434160792 /home/jlenscak/games/a-los-piedrazos/include/RockBottle.h
+	<Bottle.h>
+
+1434161476 source:/home/jlenscak/games/a-los-piedrazos/src/RockBottle.cpp
+	"RockBottle.h"
 
