@@ -16,6 +16,9 @@ class Board
         void addShoots(int shoots);
         void addPoints(int points);
         int getShoots();
+        int getBottlesSize();
+        void increaseBottles();
+        void decreaseBottles();
     protected:
     private:
         Texture rockTexture;
@@ -24,6 +27,7 @@ class Board
         Text text;
         int shoots = 3;
         int points = 0;
+        int bottlesSize = 5;
 };
 
 #endif // BOARD_H

@@ -102,9 +102,9 @@ void Rock::shoot()
     inTheSling = false;
 }
 
-bool Rock::inTheScene(int x, int y)
+bool Rock::inTheScene(RenderWindow &gm)
 {
-    return position.x > 0 && position.x < x && position.y > 0 && position.y < y;
+    return position.x > 0 && position.x < gm.getSize().x && position.y > 0 && position.y < gm.getSize().y;
 }
 
 void Rock::newShoot()

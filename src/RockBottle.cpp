@@ -15,12 +15,13 @@ RockBottle::~RockBottle()
 void RockBottle::draw(RenderWindow &gm)
 {
     Bottle::draw(gm);
-    rockSprite.setPosition(Vector2f(position.x + 10, position.y + 60));
+    Vector2f scale = getScale();
+    rockSprite.setPosition(Vector2f(position.x + (10 * scale.x), position.y + (60 * scale.y)));
+    rockSprite.setScale(scale);
     gm.draw(rockSprite);
 }
 
 void RockBottle::updateBoard(Board &board)
 {
-    board.addPoints(10);
     board.addShoots(3);
 }

@@ -81,3 +81,24 @@ void Board::drawTheEnd(RenderWindow &app)
 
     app.draw(text);
 }
+
+void Board::increaseBottles()
+{
+    if(bottlesSize < 9)
+    {
+        ++bottlesSize;
+    }
+}
+
+void Board::decreaseBottles()
+{
+    if(bottlesSize > 1)
+    {
+        --bottlesSize;
+    }
+}
+
+int Board::getBottlesSize()
+{
+    return bottlesSize;
+}

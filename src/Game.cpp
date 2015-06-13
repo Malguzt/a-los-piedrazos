@@ -5,7 +5,7 @@ Game::Game()
     backgroundTexture.loadFromFile("img/background.png");
     backgroundSprite.setTexture(backgroundTexture);
 
-    pWnd = new RenderWindow(VideoMode(800, 600), "Shoot the bottles");
+    pWnd = new RenderWindow(VideoMode(1200, 768), "Shoot the bottles", Style::Fullscreen);
     pWnd->setFramerateLimit(60);
     createBottles();
 }
@@ -65,6 +65,9 @@ void Game::processKey(int keyCode)
 {
     switch(keyCode)
     {
+        case Keyboard::Escape:
+            pWnd->close();
+            break;
         case Keyboard::Right:
             theRock.changeRadius(2);
             break;
@@ -89,8 +92,9 @@ void Game::updateGame()
     for (std::vector<Bottle*>::iterator it = bottles.begin(); it != bottles.end(); ++it)
     {
         (*it)->updatePosition();
+        (*it)->setSize(board.getBottlesSize());
     }
-    if(!theRock.inTheScene(800, 600))
+    if(!theRock.inTheScene(*pWnd))
     {
         board.lostAShoot();
         theRock.newShoot();
@@ -115,6 +119,12 @@ void Game::createBottles()
         switch(i) {
          case 0:
             bottles.push_back(new RockBottle(bottles));
+            break;
+         case 1:
+            bottles.push_back(new GreenBottle(bottles));
+            break;
+         case 2:
+            bottles.push_back(new RedBottle(bottles));
             break;
          default:
             bottles.push_back(new Bottle(bottles));

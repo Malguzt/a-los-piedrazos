@@ -2,7 +2,7 @@
 
 Bottle::Bottle(std::vector<Bottle*> &bottles)
 {
-    texture.loadFromFile("img/blue_bottle.png");
+    texture.loadFromFile("img/bottle.png");
     sprite.setTexture(texture);
     newPosition(bottles);
 }
@@ -14,22 +14,29 @@ Bottle::~Bottle()
 
 void Bottle::draw(RenderWindow &gm)
 {
-    #ifdef DEBUG_PHYSICS
-        RectangleShape rectangle((Vector2f) theSize);
-        rectangle.setPosition(position);
-        gm.draw(rectangle);
-        rectangle.setPosition(theoricPosition);
-        gm.draw(rectangle);
-    #endif // DEBUG_PHYSICS
+#ifdef DEBUG_PHYSICS
+    RectangleShape rectangle((Vector2f) theSize);
+    rectangle.setPosition(position);
+    gm.draw(rectangle);
+    rectangle.setPosition(theoricPosition);
+    gm.draw(rectangle);
+#endif // DEBUG_PHYSICS
 
     //Draw rope
+
     Vector2f origin(position.x + theSize.x / 2, 0);
     Vector2f knot = origin;
     knot.y = position.y;
 
     Vertex radiusLine[] = {Vertex(origin, Color(100, 250, 50)), Vertex(knot, Color(0, 0, 0))};
     gm.draw(radiusLine, 8, Lines);
+    sprite.setScale(getScale());
     gm.draw(sprite);
+}
+
+Vector2f Bottle::getScale()
+{
+    return Vector2f((float) theSize.x / baseSize.x, (float) theSize.y / baseSize.y);
 }
 
 void Bottle::checkPosition(std::vector<Bottle*> &bottles)
@@ -43,7 +50,8 @@ void Bottle::checkPosition(std::vector<Bottle*> &bottles)
         {
             isUsed |= zoneIsUsed(*(*it));
         }
-    } while(isUsed);
+    }
+    while(isUsed);
 }
 
 void Bottle::getRandomPosition()
@@ -114,6 +122,11 @@ bool Bottle::checkCollision(Rock &theRock, std::vector<Bottle*> &bottles, Board 
 
 void Bottle::updateBoard(Board &board)
 {
-    board.addPoints(20);
+    board.addPoints(20 / getScale().y);
     board.lostAShoot();
+}
+
+void Bottle::setSize(int newSize)
+{
+    theSize = Vector2i(newSize * 10, newSize * 20);
 }

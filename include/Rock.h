@@ -16,7 +16,7 @@ class Rock
         void changeRadius(int addRadius);
         void changeSpeed(int addSpeed);
         void shoot();
-        bool inTheScene(int x, int y);
+        bool inTheScene(RenderWindow &);
         void newShoot();
         IntRect getArea();
     protected:

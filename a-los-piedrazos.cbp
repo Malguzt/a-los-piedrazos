@@ -45,12 +45,14 @@
 		<Unit filename="include/Board.h" />
 		<Unit filename="include/Bottle.h" />
 		<Unit filename="include/Game.h" />
+		<Unit filename="include/GreenBottle.h" />
 		<Unit filename="include/Rock.h" />
 		<Unit filename="include/RockBottle.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Board.cpp" />
 		<Unit filename="src/Bottle.cpp" />
 		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/GreenBottle.cpp" />
 		<Unit filename="src/Rock.cpp" />
 		<Unit filename="src/RockBottle.cpp" />
 		<Extensions>

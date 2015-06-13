@@ -8,6 +8,8 @@
 #include "Rock.h"
 #include "Bottle.h"
 #include "RockBottle.h"
+#include "GreenBottle.h"
+#include "RedBottle.h"
 #include "Board.h"
 
 using namespace sf;
