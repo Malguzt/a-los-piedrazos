@@ -1,5 +1,4 @@
 #include "Rock.h"
-#include <SFML/Graphics.hpp>
 #include <math.h>
 using namespace sf;
 
@@ -8,6 +7,15 @@ Rock::Rock()
     texture.loadFromFile("img/small_rock.png");
     sprite.setTexture(texture);
     sprite.setPosition(position);
+
+    crashBuffer.loadFromFile("sound/crash.ogg");
+    crashSound.setBuffer(crashBuffer);
+
+    slingBuffer.loadFromFile("sound/sling.ogg");
+    slingSound.setBuffer(slingBuffer);
+
+    shootBuffer.loadFromFile("sound/shoot.ogg");
+    shootSound.setBuffer(shootBuffer);
 }
 
 Rock::~Rock()
@@ -51,6 +59,11 @@ void Rock::update()
 
 void Rock::changePosition()
 {
+    if(inTheSling && abs(position.x - pivot.x) < 30 && position.y < pivot.y)
+    {
+        slingSound.setVolume(speedModule * radius / 1000);
+        slingSound.play();
+    }
     position += speed;
     updateSpeed();
     sprite.setPosition(position - Vector2f(16, 16));
@@ -95,16 +108,27 @@ void Rock::changeSpeed(int addSpeed)
     if(speedModule + addSpeed > -51 && speedModule + addSpeed < 51){
         speedModule += addSpeed;
     }
+    if(speedModule < 5 && speedModule > 0)
+    {
+        speedModule = -5;
+    }
+    if(speedModule > -5 && speedModule < 0)
+    {
+        speedModule = 5;
+    }
 }
 
 void Rock::shoot()
 {
     inTheSling = false;
+
+    shootSound.setVolume(speedModule);
+    shootSound.play();
 }
 
 bool Rock::inTheScene(RenderWindow &gm)
 {
-    return position.x > 0 && position.x < gm.getSize().x && position.y > 0 && position.y < gm.getSize().y;
+    return position.x > 0 && position.x < gm.getSize().x && position.y < gm.getSize().y;
 }
 
 void Rock::newShoot()
@@ -112,8 +136,11 @@ void Rock::newShoot()
     position = Vector2f(200.5f, 500.5f);
     inTheSling = true;
     speed = Vector2f(0, 0);
-    speedModule = 10;
-    radius = 100;
+}
+
+void Rock::playCrash()
+{
+    crashSound.play();
 }
 
 IntRect Rock::getArea()

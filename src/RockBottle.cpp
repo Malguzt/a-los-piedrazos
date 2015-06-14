@@ -6,6 +6,7 @@ RockBottle::RockBottle(std::vector<Bottle*> &bottles):
     rockTexture.loadFromFile("img/small_rock.png");
     rockSprite.setTexture(rockTexture);
     rockSprite.setTextureRect(IntRect(0, 0, 32, 32));
+    sprite.setColor(Color::Blue);
 }
 
 RockBottle::~RockBottle()

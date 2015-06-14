@@ -32,7 +32,7 @@ void Board::draw(RenderWindow &app)
 
     for(int i= 0; i < shoots; ++i)
     {
-        rockSprite.setPosition(Vector2f(300 + i * 30, 10));
+        rockSprite.setPosition(Vector2f(app.getSize().x - i * 30, 10));
         app.draw(rockSprite);
     }
 }
@@ -57,11 +57,11 @@ void Board::addPoints(int newPoints)
 
 void Board::addShoots(int newShoots)
 {
-    if(shoots + newShoots < 15)
+    if(shoots + newShoots < maxShoots)
     {
         shoots += newShoots;
     } else {
-        shoots = 15;
+        shoots = maxShoots;
     }
 }
 
@@ -84,7 +84,7 @@ void Board::drawTheEnd(RenderWindow &app)
 
 void Board::increaseBottles()
 {
-    if(bottlesSize < 9)
+    if(bottlesSize < 8)
     {
         ++bottlesSize;
     }

@@ -25,7 +25,8 @@ class Board
         Sprite rockSprite;
         Font font;
         Text text;
-        int shoots = 3;
+        int shoots = 30;
+        int maxShoots = 30;
         int points = 0;
         int bottlesSize = 5;
 };

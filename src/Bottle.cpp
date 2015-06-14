@@ -3,8 +3,12 @@
 Bottle::Bottle(std::vector<Bottle*> &bottles)
 {
     texture.loadFromFile("img/bottle.png");
+    texture.setSmooth(true);
     sprite.setTexture(texture);
     newPosition(bottles);
+
+    ropeBuffer.loadFromFile("sound/rope.ogg");
+    ropeSound.setBuffer(ropeBuffer);
 }
 
 Bottle::~Bottle()
@@ -56,8 +60,8 @@ void Bottle::checkPosition(std::vector<Bottle*> &bottles)
 
 void Bottle::getRandomPosition()
 {
-    int x = rand() % 350 + 400;
-    int y = rand() % 400 + 10;
+    int x = rand() % 650 + 550;
+    int y = rand() % 500 + 10;
     position = Vector2f(x, 0);
     theoricPosition = Vector2f(x, y);
 }
@@ -84,6 +88,7 @@ IntRect Bottle::getTheoricArea()
 void Bottle::updatePosition()
 {
     int diff = (theoricPosition.y - position.y);
+    int prevSpeed = speed.y;
 
     if(diff < 0)
     {
@@ -94,6 +99,12 @@ void Bottle::updatePosition()
     position.y += speed.y;
     sprite.setPosition(position);
     speed.y += 0.4;
+
+    if(prevSpeed > speed.y && ropeSound.getStatus() == SoundSource::Stopped)
+    {
+        ropeSound.setVolume(abs(speed.y));
+        ropeSound.play();
+    }
 }
 
 bool Bottle::zoneIsUsed(Bottle &otherBottle)
@@ -110,6 +121,7 @@ bool Bottle::checkCollision(Rock &theRock, std::vector<Bottle*> &bottles, Board 
 {
     if (getArea().intersects(theRock.getArea()))
     {
+        theRock.playCrash();
         theRock.newShoot();
         newPosition(bottles);
         updateBoard(board);

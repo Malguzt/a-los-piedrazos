@@ -31,7 +31,7 @@ class Game
         void updateGame();
         void processCollisions();
         void processKey(int keyCode);
-        int numberOfBottles = 5;
+        int numberOfBottles = 10;
         Texture backgroundTexture;
         Sprite backgroundSprite;
         Board board;

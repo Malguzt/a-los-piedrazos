@@ -1,6 +1,7 @@
 #ifndef BOTTLE_H
 #define BOTTLE_H
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Rock.h"
 #include "Board.h"
 
@@ -27,6 +28,8 @@ class Bottle
     private:
         void checkPosition(std::vector<Bottle*> &);
         void getRandomPosition();
+        Sound ropeSound;
+        SoundBuffer ropeBuffer;
         Vector2f theoricPosition;
         Vector2f speed;
         Vector2i baseSize = Vector2i(50, 100);

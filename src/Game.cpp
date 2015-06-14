@@ -63,22 +63,15 @@ void Game::processCollisions()
 
 void Game::processKey(int keyCode)
 {
+    if(Keyboard::isKeyPressed(Keyboard::Right)) theRock.changeRadius(2);
+    if(Keyboard::isKeyPressed(Keyboard::Left)) theRock.changeRadius(-2);
+    if(Keyboard::isKeyPressed(Keyboard::Up)) theRock.changeSpeed(2);
+    if(Keyboard::isKeyPressed(Keyboard::Down)) theRock.changeSpeed(-2);
+
     switch(keyCode)
     {
         case Keyboard::Escape:
             pWnd->close();
-            break;
-        case Keyboard::Right:
-            theRock.changeRadius(2);
-            break;
-        case Keyboard::Left:
-            theRock.changeRadius(-2);
-            break;
-        case Keyboard::Up:
-            theRock.changeSpeed(2);
-            break;
-        case Keyboard::Down:
-            theRock.changeSpeed(-2);
             break;
         case Keyboard::Space:
             theRock.shoot();
@@ -118,13 +111,14 @@ void Game::createBottles()
     {
         switch(i) {
          case 0:
-            bottles.push_back(new RockBottle(bottles));
+            bottles.push_back(new RedBottle(bottles));
             break;
          case 1:
             bottles.push_back(new GreenBottle(bottles));
             break;
          case 2:
-            bottles.push_back(new RedBottle(bottles));
+         case 3:
+            bottles.push_back(new RockBottle(bottles));
             break;
          default:
             bottles.push_back(new Bottle(bottles));
