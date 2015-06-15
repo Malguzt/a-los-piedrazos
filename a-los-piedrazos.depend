@@ -63,7 +63,7 @@
 	"RedBottle.h"
 	"Board.h"
 
-1434317642 /home/jlenscak/games/a-los-piedrazos/include/Rock.h
+1434325959 /home/jlenscak/games/a-los-piedrazos/include/Rock.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio/Sound.hpp>
 	<SFML/Audio/SoundBuffer.hpp>
@@ -81,11 +81,11 @@
 1434246701 source:/home/jlenscak/games/a-los-piedrazos/src/Game.cpp
 	"Game.h"
 
-1434318289 source:/home/jlenscak/games/a-los-piedrazos/src/Rock.cpp
+1434325986 source:/home/jlenscak/games/a-los-piedrazos/src/Rock.cpp
 	"Rock.h"
 	<math.h>
 
-1434303198 source:/home/jlenscak/games/a-los-piedrazos/src/Board.cpp
+1434324422 source:/home/jlenscak/games/a-los-piedrazos/src/Board.cpp
 	<string>
 	"Board.h"
 	<sstream>

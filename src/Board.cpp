@@ -32,7 +32,7 @@ void Board::draw(RenderWindow &app)
 
     for(int i= 0; i < shoots; ++i)
     {
-        rockSprite.setPosition(Vector2f(app.getSize().x - i * 30, 10));
+        rockSprite.setPosition(Vector2f(app.getSize().x - i * 30, app.getSize().y - 30));
         app.draw(rockSprite);
     }
 }

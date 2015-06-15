@@ -34,7 +34,7 @@ class Rock
         bool inTheSling = true;
         Vector2f position;
         Vector2f speed = Vector2f(0, 0);
-        Vector2f pivot = Vector2f(200, 500);
+        Vector2f pivot = Vector2f(200, 550);
         int speedModule = 10;
         Sprite sprite;
         Texture texture;
