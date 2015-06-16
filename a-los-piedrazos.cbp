@@ -19,6 +19,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -35,6 +36,7 @@
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
+					<Add library="sfml-audio" />
 				</Linker>
 			</Target>
 		</Build>
@@ -50,6 +52,7 @@
 		<Unit filename="include/Rock.h" />
 		<Unit filename="include/RockBottle.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sound/crash.mp3" />
 		<Unit filename="src/Board.cpp" />
 		<Unit filename="src/Bottle.cpp" />
 		<Unit filename="src/Game.cpp" />

@@ -29,7 +29,7 @@ void Rock::draw(RenderWindow &gm)
     if(inTheSling)
     {
         Vertex radiusLine[] = {Vertex(pivot, Color(200, 200, 0)), Vertex(position, Color(250, 80, 50))};
-        gm.draw(radiusLine, 8, Lines);
+        gm.draw(radiusLine, 2, Lines);
     }
 
     int x = (frame % 8 * 32);
@@ -98,7 +98,7 @@ void Rock::updateSpeed()
 
 void Rock::changeRadius(int addRadius)
 {
-    if(radius + addRadius > 5 && radius + addRadius < 201) {
+    if(radius + addRadius > 5 && radius + addRadius < 171) {
         radius += addRadius;
     }
 }

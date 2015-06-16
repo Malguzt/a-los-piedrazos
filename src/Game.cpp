@@ -5,7 +5,7 @@ Game::Game()
     backgroundTexture.loadFromFile("img/background.png");
     backgroundSprite.setTexture(backgroundTexture);
 
-    pWnd = new RenderWindow(VideoMode(1200, 768), "Shoot the bottles", Style::Fullscreen);
+    pWnd = new RenderWindow(VideoMode(1200, 768), "A los piedrazos", Style::Fullscreen);
     pWnd->setFramerateLimit(60);
     createBottles();
 }
@@ -49,6 +49,9 @@ void Game::processEvent(Event &evt)
             break;
         case Event::KeyPressed:
             processKey(evt.key.code);
+            break;
+        case Event::MouseButtonPressed:
+            board.checkClick(Vector2i(evt.mouseButton.x, evt.mouseButton.y), *pWnd);
             break;
     }
 }
