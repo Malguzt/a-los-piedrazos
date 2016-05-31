@@ -27,3 +27,5 @@
 *.out
 *.app
 bin
+.vscode/
+aLosPiedrazos
